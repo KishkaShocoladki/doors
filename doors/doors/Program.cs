@@ -17,7 +17,10 @@ namespace doors
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            SQLClass.OpenConnection();
             Application.Run(new main());
+            SQLClass.CloseConnection();
         }
     }
 }
