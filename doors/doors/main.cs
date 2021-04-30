@@ -12,14 +12,35 @@ namespace doors
 {
     public partial class main : Form
     {
+        private List<DoorControl> doors = new List<DoorControl>();
+
         public main()
         {
-            InitializeComponent();
-        }
+            doors.AddRange(new DoorControl[] {
+            new DoorControl(Image.FromFile("Pictures/Дверь Егор.jpg"), "Егор", 1000, 1, new string[] { "э" }),
+            new DoorControl(Image.FromFile("Pictures/Дверь Елена.jpg"), "Елена", 1000, 1, new string[] { "э" }),
+            new DoorControl(Image.FromFile("Pictures/Дверь Курица.jpg"), "Курица", 1000, 1, new string[] { "э" }),
+            new DoorControl(Image.FromFile("Pictures/Дверь Наиль.jpg"), "Наиль", 1000, 1, new string[] { "э" }),
+            new DoorControl(Image.FromFile("Pictures/Дверь Родриго.jpg"), "Родриго", 1000, 1, new string[] { "э" }) });
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            new DoorForm().Show();
+            InitializeComponent();
+
+            int columnsConut = doorsPanel.Size.Width / 191;
+            int rowsCount = (int)Math.Ceiling((double)doors.Count / columnsConut);
+
+            for (int y = 0; y < rowsCount; y++)
+            {
+                for (int x = 0; x < columnsConut; x++)
+                {
+                    int index = x + y * columnsConut;
+
+                    if (doors.Count <= index)
+                        break;
+                    
+                    doors[index].Location = new Point(191 * x, 206 * y + 6);
+                    doorsPanel.Controls.Add(doors[index]);
+                }
+            }
         }
     }
 }
