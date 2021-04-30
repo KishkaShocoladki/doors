@@ -64,7 +64,7 @@
             // 
             this.doorPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.doorPicture.Dock = System.Windows.Forms.DockStyle.Left;
-            this.doorPicture.Image = ((System.Drawing.Image)(resources.GetObject("doorPicture.Image")));
+            //this.doorPicture.Image = ((System.Drawing.Image)(resources.GetObject("doorPicture.Image")));
             this.doorPicture.Location = new System.Drawing.Point(0, 0);
             this.doorPicture.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.doorPicture.Name = "doorPicture";

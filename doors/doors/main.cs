@@ -17,11 +17,11 @@ namespace doors
         public main()
         {
             doors.AddRange(new DoorControl[] {
-            new DoorControl(Image.FromFile("Pictures/Дверь Егор.jpg"), "Егор", 1000, 1, new string[] { "э" }),
-            new DoorControl(Image.FromFile("Pictures/Дверь Елена.jpg"), "Елена", 1000, 1, new string[] { "э" }),
-            new DoorControl(Image.FromFile("Pictures/Дверь Курица.jpg"), "Курица", 1000, 1, new string[] { "э" }),
-            new DoorControl(Image.FromFile("Pictures/Дверь Наиль.jpg"), "Наиль", 1000, 1, new string[] { "э" }),
-            new DoorControl(Image.FromFile("Pictures/Дверь Родриго.jpg"), "Родриго", 1000, 1, new string[] { "э" }) });
+            new DoorControl(Image.FromFile("../../../../Pictures/Дверь Егор.jpg"), "Егор", 1000, 1, new string[] { "э" }),
+            new DoorControl(Image.FromFile("../../../../Pictures/Дверь Елена.jpg"), "Елена", 1000, 1, new string[] { "э" }),
+            new DoorControl(Image.FromFile("../../../../Pictures/Дверь Курица.jpg"), "Курица", 1000, 1, new string[] { "э" }),
+            new DoorControl(Image.FromFile("../../../../Pictures/Дверь Наиль.jpg"), "Наиль", 1000, 1, new string[] { "э" }),
+            new DoorControl(Image.FromFile("../../../../Pictures/Дверь Родриго.jpg"), "Родриго", 1000, 1, new string[] { "э" }) });
 
             InitializeComponent();
             int columnsConut = doorsPanel.Size.Width / 191;
