@@ -24,7 +24,6 @@ namespace doors
             new DoorControl(Image.FromFile("Pictures/Дверь Родриго.jpg"), "Родриго", 1000, 1, new string[] { "э" }) });
 
             InitializeComponent();
-
             int columnsConut = doorsPanel.Size.Width / 191;
             int rowsCount = (int)Math.Ceiling((double)doors.Count / columnsConut);
 
