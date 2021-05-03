@@ -18,13 +18,17 @@ namespace doors
         {
             InitializeComponent();
 
-            List<string> list = SQLClass.Select("SELECT Name, Price, Mass FROM doors");
+            List<string> list = SQLClass.Select("SELECT Name, Price, Mass, Id FROM doors");
             List<Image> images = SQLClass.SelectImages("SELECT Image FROM doors");
 
-            for (int i = 0; i < list.Count; i += 3)
+            for (int i = 0; i < list.Count; i += 4)
             {
+                List<string> colors = SQLClass.Select(
+                    "SELECT DISTINCT Name"+
+                    " FROM colors JOIN door_colors ON colors.id = door_colors.color_id" +
+                    " WHERE door_colors.door_id = " + list[i+3]);
                 modelComboBox.Items.Add(list[i]);
-                doors.Add(new DoorControl(images[i / 3], list[i], int.Parse(list[i + 1]), float.Parse(list[i + 2]), new string[] { "э" }));
+                doors.Add(new DoorControl(images[i / 4], list[i], int.Parse(list[i + 1]), float.Parse(list[i + 2]), colors.ToArray()));
             }
 
             modelComboBox.SelectedIndex = 0;

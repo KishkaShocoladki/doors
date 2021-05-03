@@ -18,6 +18,12 @@ namespace doors
         private void widthComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             width = int.Parse(widthComboBox.Text);
+            UpdatePrice();
+        }
+
+        private void trimPanelsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePrice();
         }
 
         private string[] colors;
@@ -34,6 +40,7 @@ namespace doors
 
             doorPicture.Image = image;
             nameLabel.Text = name;
+            colorComboBox.Items.Clear();
             colorComboBox.Items.AddRange(colors);
             colorComboBox.SelectedIndex = 0;
             widthComboBox.Text = width.ToString();

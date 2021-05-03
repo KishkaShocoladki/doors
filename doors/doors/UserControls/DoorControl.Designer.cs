@@ -120,6 +120,7 @@
             this.trimPanelsCheckBox.TabIndex = 5;
             this.trimPanelsCheckBox.Text = "Наличники (1000руб)";
             this.trimPanelsCheckBox.UseVisualStyleBackColor = true;
+            this.trimPanelsCheckBox.CheckedChanged += new System.EventHandler(this.trimPanelsCheckBox_CheckedChanged);
             // 
             // handleCheckBox
             // 
@@ -130,6 +131,7 @@
             this.handleCheckBox.TabIndex = 5;
             this.handleCheckBox.Text = "Ручка (1200руб)";
             this.handleCheckBox.UseVisualStyleBackColor = true;
+            this.handleCheckBox.CheckedChanged += new System.EventHandler(this.trimPanelsCheckBox_CheckedChanged);
             // 
             // specialManCheclBox
             // 
@@ -140,6 +142,7 @@
             this.specialManCheclBox.TabIndex = 6;
             this.specialManCheclBox.Text = "Сборка специалистом (500руб)";
             this.specialManCheclBox.UseVisualStyleBackColor = true;
+            this.specialManCheclBox.CheckedChanged += new System.EventHandler(this.trimPanelsCheckBox_CheckedChanged);
             // 
             // deliveryCheckBox
             // 
