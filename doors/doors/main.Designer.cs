@@ -30,14 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.comboPanel = new System.Windows.Forms.Panel();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.assemblyChechBox = new System.Windows.Forms.CheckBox();
+            this.panelsCheckBox = new System.Windows.Forms.CheckBox();
+            this.handleCheckBox = new System.Windows.Forms.CheckBox();
+            this.colorLabel = new System.Windows.Forms.Label();
+            this.modelLabel = new System.Windows.Forms.Label();
+            this.widthLabel = new System.Windows.Forms.Label();
+            this.colorComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.modelComboBox = new System.Windows.Forms.ComboBox();
+            this.widthComboBox = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.doorsPanel = new System.Windows.Forms.Panel();
             this.comboPanel.SuspendLayout();
@@ -46,81 +48,96 @@
             // comboPanel
             // 
             this.comboPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.comboPanel.Controls.Add(this.checkBox3);
-            this.comboPanel.Controls.Add(this.checkBox2);
-            this.comboPanel.Controls.Add(this.checkBox1);
-            this.comboPanel.Controls.Add(this.label7);
-            this.comboPanel.Controls.Add(this.label6);
-            this.comboPanel.Controls.Add(this.comboBox2);
+            this.comboPanel.Controls.Add(this.assemblyChechBox);
+            this.comboPanel.Controls.Add(this.panelsCheckBox);
+            this.comboPanel.Controls.Add(this.handleCheckBox);
+            this.comboPanel.Controls.Add(this.colorLabel);
+            this.comboPanel.Controls.Add(this.modelLabel);
+            this.comboPanel.Controls.Add(this.widthLabel);
+            this.comboPanel.Controls.Add(this.colorComboBox);
             this.comboPanel.Controls.Add(this.label1);
-            this.comboPanel.Controls.Add(this.comboBox1);
+            this.comboPanel.Controls.Add(this.modelComboBox);
+            this.comboPanel.Controls.Add(this.widthComboBox);
             this.comboPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboPanel.Location = new System.Drawing.Point(0, 0);
             this.comboPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboPanel.Name = "comboPanel";
-            this.comboPanel.Size = new System.Drawing.Size(258, 431);
+            this.comboPanel.Size = new System.Drawing.Size(258, 480);
             this.comboPanel.TabIndex = 0;
             // 
-            // checkBox3
+            // assemblyChechBox
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(12, 304);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(82, 24);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Сборка";
-            this.toolTip1.SetToolTip(this.checkBox3, "Все соберем и даже проверим");
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.assemblyChechBox.AutoSize = true;
+            this.assemblyChechBox.Location = new System.Drawing.Point(12, 304);
+            this.assemblyChechBox.Name = "assemblyChechBox";
+            this.assemblyChechBox.Size = new System.Drawing.Size(82, 24);
+            this.assemblyChechBox.TabIndex = 4;
+            this.assemblyChechBox.Text = "Сборка";
+            this.toolTip1.SetToolTip(this.assemblyChechBox, "Все соберем и даже проверим");
+            this.assemblyChechBox.UseVisualStyleBackColor = true;
+            this.assemblyChechBox.CheckedChanged += new System.EventHandler(this.UpdatePrice);
             // 
-            // checkBox2
+            // panelsCheckBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(13, 274);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(109, 24);
-            this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "Наличники";
-            this.toolTip1.SetToolTip(this.checkBox2, "Красивые наличники чтобы монтажная пена не торчала изо всех щелей");
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.panelsCheckBox.AutoSize = true;
+            this.panelsCheckBox.Location = new System.Drawing.Point(13, 274);
+            this.panelsCheckBox.Name = "panelsCheckBox";
+            this.panelsCheckBox.Size = new System.Drawing.Size(109, 24);
+            this.panelsCheckBox.TabIndex = 4;
+            this.panelsCheckBox.Text = "Наличники";
+            this.toolTip1.SetToolTip(this.panelsCheckBox, "Красивые наличники чтобы монтажная пена не торчала изо всех щелей");
+            this.panelsCheckBox.UseVisualStyleBackColor = true;
+            this.panelsCheckBox.CheckedChanged += new System.EventHandler(this.UpdatePrice);
             // 
-            // checkBox1
+            // handleCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(13, 243);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(69, 24);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Ручка";
-            this.toolTip1.SetToolTip(this.checkBox1, "Супер-ручка с замком");
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.handleCheckBox.AutoSize = true;
+            this.handleCheckBox.Location = new System.Drawing.Point(13, 243);
+            this.handleCheckBox.Name = "handleCheckBox";
+            this.handleCheckBox.Size = new System.Drawing.Size(69, 24);
+            this.handleCheckBox.TabIndex = 3;
+            this.handleCheckBox.Text = "Ручка";
+            this.toolTip1.SetToolTip(this.handleCheckBox, "Супер-ручка с замком");
+            this.handleCheckBox.UseVisualStyleBackColor = true;
+            this.handleCheckBox.CheckedChanged += new System.EventHandler(this.UpdatePrice);
             // 
-            // label7
+            // colorLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 147);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 20);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Цвет";
+            this.colorLabel.AutoSize = true;
+            this.colorLabel.Location = new System.Drawing.Point(13, 184);
+            this.colorLabel.Name = "colorLabel";
+            this.colorLabel.Size = new System.Drawing.Size(42, 20);
+            this.colorLabel.TabIndex = 2;
+            this.colorLabel.Text = "Цвет";
             // 
-            // label6
+            // modelLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 71);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Ширина полотна, мм";
+            this.modelLabel.AutoSize = true;
+            this.modelLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.modelLabel.Location = new System.Drawing.Point(13, 72);
+            this.modelLabel.Name = "modelLabel";
+            this.modelLabel.Size = new System.Drawing.Size(63, 20);
+            this.modelLabel.TabIndex = 1;
+            this.modelLabel.Text = "Модель";
             // 
-            // comboBox2
+            // widthLabel
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(13, 171);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(162, 28);
-            this.comboBox2.TabIndex = 0;
+            this.widthLabel.AutoSize = true;
+            this.widthLabel.Location = new System.Drawing.Point(13, 128);
+            this.widthLabel.Name = "widthLabel";
+            this.widthLabel.Size = new System.Drawing.Size(158, 20);
+            this.widthLabel.TabIndex = 1;
+            this.widthLabel.Text = "Ширина полотна, мм";
+            // 
+            // colorComboBox
+            // 
+            this.colorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.colorComboBox.FormattingEnabled = true;
+            this.colorComboBox.Location = new System.Drawing.Point(14, 208);
+            this.colorComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.colorComboBox.Name = "colorComboBox";
+            this.colorComboBox.Size = new System.Drawing.Size(162, 28);
+            this.colorComboBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -130,37 +147,49 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "панелька выбора параметров дверей";
             // 
-            // comboBox1
+            // modelComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.modelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.modelComboBox.FormattingEnabled = true;
+            this.modelComboBox.Location = new System.Drawing.Point(14, 96);
+            this.modelComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.modelComboBox.Name = "modelComboBox";
+            this.modelComboBox.Size = new System.Drawing.Size(162, 28);
+            this.modelComboBox.TabIndex = 0;
+            this.modelComboBox.SelectedIndexChanged += new System.EventHandler(this.modelComboBox_SelectedIndexChanged);
+            // 
+            // widthComboBox
+            // 
+            this.widthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.widthComboBox.FormattingEnabled = true;
+            this.widthComboBox.Items.AddRange(new object[] {
             "400",
             "500",
             "600",
             "700",
             "800"});
-            this.comboBox1.Location = new System.Drawing.Point(14, 105);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(162, 28);
-            this.comboBox1.TabIndex = 0;
+            this.widthComboBox.Location = new System.Drawing.Point(14, 152);
+            this.widthComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.widthComboBox.Name = "widthComboBox";
+            this.widthComboBox.Size = new System.Drawing.Size(162, 28);
+            this.widthComboBox.TabIndex = 0;
+            this.widthComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdatePrice);
             // 
             // doorsPanel
             // 
             this.doorsPanel.AutoScroll = true;
             this.doorsPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.doorsPanel.Location = new System.Drawing.Point(265, 0);
+            this.doorsPanel.Location = new System.Drawing.Point(264, 0);
             this.doorsPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.doorsPanel.Name = "doorsPanel";
-            this.doorsPanel.Size = new System.Drawing.Size(425, 431);
+            this.doorsPanel.Size = new System.Drawing.Size(860, 480);
             this.doorsPanel.TabIndex = 0;
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 431);
+            this.ClientSize = new System.Drawing.Size(1124, 480);
             this.Controls.Add(this.doorsPanel);
             this.Controls.Add(this.comboPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -176,15 +205,17 @@
 
         private System.Windows.Forms.Panel comboPanel;
         private System.Windows.Forms.Panel doorsPanel;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox colorComboBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.ComboBox widthComboBox;
+        private System.Windows.Forms.Label colorLabel;
+        private System.Windows.Forms.Label widthLabel;
+        private System.Windows.Forms.CheckBox assemblyChechBox;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox panelsCheckBox;
+        private System.Windows.Forms.CheckBox handleCheckBox;
+        private System.Windows.Forms.Label modelLabel;
+        private System.Windows.Forms.ComboBox modelComboBox;
     }
 }
 
