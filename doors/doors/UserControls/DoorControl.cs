@@ -12,13 +12,21 @@ namespace doors
     {
         private Image image;
         private string name;
-        private int width = 60, basePrice, finalPrice, deliveryPrice;
+        private int width = 60, basePrice, finalPrice, sborkaPrice = 500, deliveryPrice;
         private float mass;
 
         private void widthComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             width = int.Parse(widthComboBox.Text);
             UpdatePrice();
+        }
+
+        private void deliveryCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            distanceNumericUpDown.Visible = deliveryCheckBox.Checked;
+            deliveryTypeComboBox.Visible = deliveryCheckBox.Checked;
+            ulyanovskRB.Visible = deliveryCheckBox.Checked;
+            anotherCityRB.Visible = deliveryCheckBox.Checked;
         }
 
         private void trimPanelsCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -49,6 +57,13 @@ namespace doors
 
         public void UpdatePrice()
         {
+            //Стоимость сборки
+            sborkaPrice = 500;
+            if (trimPanelsCheckBox.Checked)
+                sborkaPrice += 300;
+            if (handleCheckBox.Checked)
+                sborkaPrice += 500;
+
             mass = (int)(mass * (1 + (width - 60) / 50f)) + (handleCheckBox.Checked ? 1 : 0) + (trimPanelsCheckBox.Checked ? 2 : 0);
 
             if(deliveryCheckBox.Checked)
@@ -56,10 +71,13 @@ namespace doors
 
             }
 
-            finalPrice = (int)(basePrice * (1 + ((width - 60) / 50f))) + (trimPanelsCheckBox.Checked ? 1000 : 0) +
-                (handleCheckBox.Checked ? 1200 : 0) + (specialManCheclBox.Checked ? 500 : 0) + deliveryPrice;
+            finalPrice = (int)(basePrice * (1 + ((width - 60) / 50f))) + 
+                (trimPanelsCheckBox.Checked ? 1000 : 0) +
+                (handleCheckBox.Checked ? 1200 : 0) + 
+                (specialManCheclBox.Checked ? sborkaPrice : 0) + deliveryPrice;
 
-            priseLabel.Text = finalPrice + "руб";
+            priseLabel.Text = finalPrice + " руб";
+            specialManCheclBox.Text = "Сборка специалистом (" + sborkaPrice.ToString() + " руб)";
         }
     }
 }
