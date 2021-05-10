@@ -47,6 +47,7 @@
             this.distanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ulyanovskRB = new System.Windows.Forms.RadioButton();
             this.anotherCityRB = new System.Windows.Forms.RadioButton();
+            this.DeliveryLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.doorPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceNumericUpDown)).BeginInit();
@@ -165,6 +166,7 @@
             this.floorNumericUpDown.Size = new System.Drawing.Size(121, 43);
             this.floorNumericUpDown.TabIndex = 9;
             this.floorNumericUpDown.Visible = false;
+            this.floorNumericUpDown.ValueChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
             // 
             // widthComboBox
             // 
@@ -202,6 +204,7 @@
             this.elevatorCheckBox.Text = "Лифт";
             this.elevatorCheckBox.UseVisualStyleBackColor = true;
             this.elevatorCheckBox.Visible = false;
+            this.elevatorCheckBox.CheckedChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
             // 
             // deliveryTypeComboBox
             // 
@@ -215,11 +218,12 @@
             this.deliveryTypeComboBox.Size = new System.Drawing.Size(377, 45);
             this.deliveryTypeComboBox.TabIndex = 2;
             this.deliveryTypeComboBox.Visible = false;
+            this.deliveryTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
             // 
             // priseLabel
             // 
             this.priseLabel.AutoSize = true;
-            this.priseLabel.Location = new System.Drawing.Point(312, 415);
+            this.priseLabel.Location = new System.Drawing.Point(309, 425);
             this.priseLabel.Name = "priseLabel";
             this.priseLabel.Size = new System.Drawing.Size(129, 37);
             this.priseLabel.TabIndex = 3;
@@ -232,6 +236,7 @@
             this.distanceNumericUpDown.Size = new System.Drawing.Size(95, 43);
             this.distanceNumericUpDown.TabIndex = 9;
             this.distanceNumericUpDown.Visible = false;
+            this.distanceNumericUpDown.ValueChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
             // 
             // ulyanovskRB
             // 
@@ -245,6 +250,7 @@
             this.ulyanovskRB.Text = "по Ульяновску";
             this.ulyanovskRB.UseVisualStyleBackColor = true;
             this.ulyanovskRB.Visible = false;
+            this.ulyanovskRB.CheckedChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
             // 
             // anotherCityRB
             // 
@@ -256,11 +262,23 @@
             this.anotherCityRB.Text = "Другой город в                  км";
             this.anotherCityRB.UseVisualStyleBackColor = true;
             this.anotherCityRB.Visible = false;
+            this.anotherCityRB.CheckedChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
+            // 
+            // DeliveryLabel
+            // 
+            this.DeliveryLabel.AutoSize = true;
+            this.DeliveryLabel.Location = new System.Drawing.Point(471, 425);
+            this.DeliveryLabel.Name = "DeliveryLabel";
+            this.DeliveryLabel.Size = new System.Drawing.Size(277, 37);
+            this.DeliveryLabel.TabIndex = 3;
+            this.DeliveryLabel.Text = " + 7410 руб доставка";
+            this.DeliveryLabel.Visible = false;
             // 
             // DoorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.DeliveryLabel);
             this.Controls.Add(this.distanceNumericUpDown);
             this.Controls.Add(this.anotherCityRB);
             this.Controls.Add(this.ulyanovskRB);
@@ -313,5 +331,6 @@
         private System.Windows.Forms.NumericUpDown distanceNumericUpDown;
         private System.Windows.Forms.RadioButton ulyanovskRB;
         private System.Windows.Forms.RadioButton anotherCityRB;
+        private System.Windows.Forms.Label DeliveryLabel;
     }
 }

@@ -27,6 +27,15 @@ namespace doors
             deliveryTypeComboBox.Visible = deliveryCheckBox.Checked;
             ulyanovskRB.Visible = deliveryCheckBox.Checked;
             anotherCityRB.Visible = deliveryCheckBox.Checked;
+            floorLabel.Visible = deliveryCheckBox.Checked;
+            floorNumericUpDown.Visible = deliveryCheckBox.Checked;
+            elevatorCheckBox.Visible = deliveryCheckBox.Checked;
+            DeliveryLabel.Visible = deliveryCheckBox.Checked;
+        }
+
+        private void anotherCityRB_CheckedChanged(object sender, EventArgs e)
+        {
+            DeliveryLabel.Text = "+7410 руб доставка";
         }
 
         private void trimPanelsCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -66,10 +75,6 @@ namespace doors
 
             mass = (int)(mass * (1 + (width - 60) / 50f)) + (handleCheckBox.Checked ? 1 : 0) + (trimPanelsCheckBox.Checked ? 2 : 0);
 
-            if(deliveryCheckBox.Checked)
-            {
-
-            }
 
             finalPrice = (int)(basePrice * (1 + ((width - 60) / 50f))) + 
                 (trimPanelsCheckBox.Checked ? 1000 : 0) +
@@ -78,6 +83,30 @@ namespace doors
 
             priseLabel.Text = finalPrice + " руб";
             specialManCheclBox.Text = "Сборка специалистом (" + sborkaPrice.ToString() + " руб)";
+
+
+            if (deliveryCheckBox.Checked)
+            {
+                //Добавить учет массы
+                int deliveryPrice;
+
+                //По городу / дальше
+                if (ulyanovskRB.Checked)
+                    deliveryPrice = 0;
+                else
+                    deliveryPrice = 100 + 15 * Convert.ToInt32(distanceNumericUpDown.Value);
+
+                //До квартиры
+                if (deliveryTypeComboBox.SelectedIndex == 0)
+                {
+                    if (elevatorCheckBox.Checked)
+                        deliveryPrice += 500;
+                    else
+                        deliveryPrice += 250 * Convert.ToInt32(floorNumericUpDown.Value);
+                }
+
+                DeliveryLabel.Text = "+" + deliveryPrice.ToString() + " руб доставка";
+            }
         }
     }
 }
