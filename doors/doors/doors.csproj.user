@@ -7,8 +7,5 @@
     <Compile Update="main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UserControls\DoorControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

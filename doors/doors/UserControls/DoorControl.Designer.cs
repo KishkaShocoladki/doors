@@ -38,15 +38,19 @@
             this.handleCheckBox = new System.Windows.Forms.CheckBox();
             this.specialManCheclBox = new System.Windows.Forms.CheckBox();
             this.deliveryCheckBox = new System.Windows.Forms.CheckBox();
-            this.ulyanovskCheckBox = new System.Windows.Forms.CheckBox();
             this.floorNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.widthComboBox = new System.Windows.Forms.ComboBox();
             this.floorLabel = new System.Windows.Forms.Label();
             this.elevatorCheckBox = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.deliveryTypeComboBox = new System.Windows.Forms.ComboBox();
             this.priseLabel = new System.Windows.Forms.Label();
+            this.distanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ulyanovskRB = new System.Windows.Forms.RadioButton();
+            this.anotherCityRB = new System.Windows.Forms.RadioButton();
+            this.DeliveryLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.doorPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distanceNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -153,25 +157,16 @@
             this.deliveryCheckBox.TabIndex = 7;
             this.deliveryCheckBox.Text = "Доставка";
             this.deliveryCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // ulyanovskCheckBox
-            // 
-            this.ulyanovskCheckBox.AutoSize = true;
-            this.ulyanovskCheckBox.Location = new System.Drawing.Point(312, 283);
-            this.ulyanovskCheckBox.Name = "ulyanovskCheckBox";
-            this.ulyanovskCheckBox.Size = new System.Drawing.Size(189, 41);
-            this.ulyanovskCheckBox.TabIndex = 8;
-            this.ulyanovskCheckBox.Text = "В Ульяновск";
-            this.ulyanovskCheckBox.UseVisualStyleBackColor = true;
-            this.ulyanovskCheckBox.Visible = false;
+            this.deliveryCheckBox.CheckedChanged += new System.EventHandler(this.deliveryCheckBox_CheckedChanged);
             // 
             // floorNumericUpDown
             // 
-            this.floorNumericUpDown.Location = new System.Drawing.Point(394, 349);
+            this.floorNumericUpDown.Location = new System.Drawing.Point(556, 285);
             this.floorNumericUpDown.Name = "floorNumericUpDown";
-            this.floorNumericUpDown.Size = new System.Drawing.Size(203, 43);
+            this.floorNumericUpDown.Size = new System.Drawing.Size(121, 43);
             this.floorNumericUpDown.TabIndex = 9;
             this.floorNumericUpDown.Visible = false;
+            this.floorNumericUpDown.ValueChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
             // 
             // widthComboBox
             // 
@@ -183,7 +178,7 @@
             "60",
             "70",
             "80"});
-            this.widthComboBox.Location = new System.Drawing.Point(436, 91);
+            this.widthComboBox.Location = new System.Drawing.Point(436, 95);
             this.widthComboBox.Name = "widthComboBox";
             this.widthComboBox.Size = new System.Drawing.Size(411, 45);
             this.widthComboBox.TabIndex = 2;
@@ -192,7 +187,7 @@
             // floorLabel
             // 
             this.floorLabel.AutoSize = true;
-            this.floorLabel.Location = new System.Drawing.Point(309, 351);
+            this.floorLabel.Location = new System.Drawing.Point(471, 287);
             this.floorLabel.Name = "floorLabel";
             this.floorLabel.Size = new System.Drawing.Size(79, 37);
             this.floorLabel.TabIndex = 3;
@@ -202,43 +197,93 @@
             // elevatorCheckBox
             // 
             this.elevatorCheckBox.AutoSize = true;
-            this.elevatorCheckBox.Location = new System.Drawing.Point(636, 350);
+            this.elevatorCheckBox.Location = new System.Drawing.Point(744, 287);
             this.elevatorCheckBox.Name = "elevatorCheckBox";
             this.elevatorCheckBox.Size = new System.Drawing.Size(103, 41);
             this.elevatorCheckBox.TabIndex = 8;
             this.elevatorCheckBox.Text = "Лифт";
             this.elevatorCheckBox.UseVisualStyleBackColor = true;
             this.elevatorCheckBox.Visible = false;
+            this.elevatorCheckBox.CheckedChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
             // 
-            // comboBox1
+            // deliveryTypeComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.deliveryTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.deliveryTypeComboBox.FormattingEnabled = true;
+            this.deliveryTypeComboBox.Items.AddRange(new object[] {
             "до квартиры",
             "до подъезда"});
-            this.comboBox1.Location = new System.Drawing.Point(470, 234);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(377, 45);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.Visible = false;
+            this.deliveryTypeComboBox.Location = new System.Drawing.Point(470, 234);
+            this.deliveryTypeComboBox.Name = "deliveryTypeComboBox";
+            this.deliveryTypeComboBox.Size = new System.Drawing.Size(377, 45);
+            this.deliveryTypeComboBox.TabIndex = 2;
+            this.deliveryTypeComboBox.Visible = false;
+            this.deliveryTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
             // 
             // priseLabel
             // 
             this.priseLabel.AutoSize = true;
-            this.priseLabel.Location = new System.Drawing.Point(312, 415);
+            this.priseLabel.Location = new System.Drawing.Point(309, 425);
             this.priseLabel.Name = "priseLabel";
             this.priseLabel.Size = new System.Drawing.Size(129, 37);
             this.priseLabel.TabIndex = 3;
             this.priseLabel.Text = "7410 руб";
             // 
+            // distanceNumericUpDown
+            // 
+            this.distanceNumericUpDown.Location = new System.Drawing.Point(709, 381);
+            this.distanceNumericUpDown.Name = "distanceNumericUpDown";
+            this.distanceNumericUpDown.Size = new System.Drawing.Size(95, 43);
+            this.distanceNumericUpDown.TabIndex = 9;
+            this.distanceNumericUpDown.Visible = false;
+            this.distanceNumericUpDown.ValueChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
+            // 
+            // ulyanovskRB
+            // 
+            this.ulyanovskRB.AutoSize = true;
+            this.ulyanovskRB.Checked = true;
+            this.ulyanovskRB.Location = new System.Drawing.Point(471, 334);
+            this.ulyanovskRB.Name = "ulyanovskRB";
+            this.ulyanovskRB.Size = new System.Drawing.Size(218, 41);
+            this.ulyanovskRB.TabIndex = 10;
+            this.ulyanovskRB.TabStop = true;
+            this.ulyanovskRB.Text = "по Ульяновску";
+            this.ulyanovskRB.UseVisualStyleBackColor = true;
+            this.ulyanovskRB.Visible = false;
+            this.ulyanovskRB.CheckedChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
+            // 
+            // anotherCityRB
+            // 
+            this.anotherCityRB.AutoSize = true;
+            this.anotherCityRB.Location = new System.Drawing.Point(471, 381);
+            this.anotherCityRB.Name = "anotherCityRB";
+            this.anotherCityRB.Size = new System.Drawing.Size(387, 41);
+            this.anotherCityRB.TabIndex = 10;
+            this.anotherCityRB.Text = "Другой город в                  км";
+            this.anotherCityRB.UseVisualStyleBackColor = true;
+            this.anotherCityRB.Visible = false;
+            this.anotherCityRB.CheckedChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
+            // 
+            // DeliveryLabel
+            // 
+            this.DeliveryLabel.AutoSize = true;
+            this.DeliveryLabel.Location = new System.Drawing.Point(471, 425);
+            this.DeliveryLabel.Name = "DeliveryLabel";
+            this.DeliveryLabel.Size = new System.Drawing.Size(277, 37);
+            this.DeliveryLabel.TabIndex = 3;
+            this.DeliveryLabel.Text = " + 7410 руб доставка";
+            this.DeliveryLabel.Visible = false;
+            // 
             // DoorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.DeliveryLabel);
+            this.Controls.Add(this.distanceNumericUpDown);
+            this.Controls.Add(this.anotherCityRB);
+            this.Controls.Add(this.ulyanovskRB);
             this.Controls.Add(this.elevatorCheckBox);
             this.Controls.Add(this.floorNumericUpDown);
-            this.Controls.Add(this.ulyanovskCheckBox);
             this.Controls.Add(this.deliveryCheckBox);
             this.Controls.Add(this.specialManCheclBox);
             this.Controls.Add(this.handleCheckBox);
@@ -247,7 +292,7 @@
             this.Controls.Add(this.floorLabel);
             this.Controls.Add(this.widthLabel);
             this.Controls.Add(this.colorLabel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.deliveryTypeComboBox);
             this.Controls.Add(this.widthComboBox);
             this.Controls.Add(this.colorComboBox);
             this.Controls.Add(this.label2);
@@ -259,6 +304,7 @@
             this.Size = new System.Drawing.Size(860, 480);
             ((System.ComponentModel.ISupportInitialize)(this.doorPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distanceNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,12 +322,15 @@
         private System.Windows.Forms.CheckBox handleCheckBox;
         private System.Windows.Forms.CheckBox specialManCheclBox;
         private System.Windows.Forms.CheckBox deliveryCheckBox;
-        private System.Windows.Forms.CheckBox ulyanovskCheckBox;
         private System.Windows.Forms.NumericUpDown floorNumericUpDown;
         private System.Windows.Forms.ComboBox widthComboBox;
         private System.Windows.Forms.Label floorLabel;
         private System.Windows.Forms.CheckBox elevatorCheckBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox deliveryTypeComboBox;
         private System.Windows.Forms.Label priseLabel;
+        private System.Windows.Forms.NumericUpDown distanceNumericUpDown;
+        private System.Windows.Forms.RadioButton ulyanovskRB;
+        private System.Windows.Forms.RadioButton anotherCityRB;
+        private System.Windows.Forms.Label DeliveryLabel;
     }
 }
