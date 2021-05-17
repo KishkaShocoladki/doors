@@ -47,5 +47,38 @@ namespace doors
 
             UpdatePrice(sender, e);
         }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void colorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (loginTB.Text == "Admin" && passTB.Text == "123")
+            {
+                doorsPanel.Controls.Clear();
+                doorsPanel.Controls.Add(new AdminControl());
+            }
+        }
+
+        private void modelLabel_Click(object sender, EventArgs e)
+        {
+            loginLBL.Visible = true;
+            loginTB.Visible = loginLBL.Visible;
+            passLbl.Visible = loginLBL.Visible;
+            passTB.Visible = loginLBL.Visible;
+            adminBtn.Visible = loginLBL.Visible;
+        }
     }
 }
