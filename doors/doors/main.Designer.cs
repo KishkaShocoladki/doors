@@ -139,14 +139,14 @@
             this.doorsPanel.Location = new System.Drawing.Point(0, 44);
             this.doorsPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.doorsPanel.Name = "doorsPanel";
-            this.doorsPanel.Size = new System.Drawing.Size(931, 625);
+            this.doorsPanel.Size = new System.Drawing.Size(931, 489);
             this.doorsPanel.TabIndex = 0;
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 669);
+            this.ClientSize = new System.Drawing.Size(931, 533);
             this.Controls.Add(this.doorsPanel);
             this.Controls.Add(this.comboPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
