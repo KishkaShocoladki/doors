@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.doorsPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.NameLbl = new System.Windows.Forms.Label();
             this.NameTB = new System.Windows.Forms.TextBox();
             this.PriceLbl = new System.Windows.Forms.Label();
@@ -39,30 +41,45 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MassTB = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.doorsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // doorsPanel
             // 
             this.doorsPanel.AutoScroll = true;
+            this.doorsPanel.Controls.Add(this.AddButton);
             this.doorsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.doorsPanel.Location = new System.Drawing.Point(0, 0);
             this.doorsPanel.Name = "doorsPanel";
             this.doorsPanel.Size = new System.Drawing.Size(250, 480);
             this.doorsPanel.TabIndex = 0;
             // 
-            // button1
+            // AddButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.AddButton.Location = new System.Drawing.Point(199, 7);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(51, 41);
+            this.AddButton.TabIndex = 0;
+            this.AddButton.Text = "+";
+            this.toolTip1.SetToolTip(this.AddButton, "Новая дверка...");
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(300, 433);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(516, 38);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SaveButton.Location = new System.Drawing.Point(300, 433);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(516, 38);
+            this.SaveButton.TabIndex = 1;
+            this.SaveButton.Text = "Сохранить";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // NameLbl
             // 
@@ -141,12 +158,12 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Масса";
             // 
-            // textBox1
+            // MassTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(368, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(448, 27);
-            this.textBox1.TabIndex = 3;
+            this.MassTB.Location = new System.Drawing.Point(368, 92);
+            this.MassTB.Name = "MassTB";
+            this.MassTB.Size = new System.Drawing.Size(448, 27);
+            this.MassTB.TabIndex = 3;
             // 
             // openFileDialog1
             // 
@@ -156,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.MassTB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -166,11 +183,12 @@
             this.Controls.Add(this.PriceLbl);
             this.Controls.Add(this.NameTB);
             this.Controls.Add(this.NameLbl);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.doorsPanel);
             this.Name = "AdminControl";
             this.Size = new System.Drawing.Size(860, 480);
             this.Load += new System.EventHandler(this.AdminControl_Load);
+            this.doorsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -180,7 +198,7 @@
         #endregion
 
         private System.Windows.Forms.Panel doorsPanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Label NameLbl;
         private System.Windows.Forms.TextBox NameTB;
         private System.Windows.Forms.Label PriceLbl;
@@ -190,7 +208,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox MassTB;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

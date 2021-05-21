@@ -96,6 +96,7 @@
             this.colorComboBox.Name = "colorComboBox";
             this.colorComboBox.Size = new System.Drawing.Size(411, 45);
             this.colorComboBox.TabIndex = 2;
+            this.colorComboBox.SelectedIndexChanged += new System.EventHandler(this.colorComboBox_SelectedIndexChanged);
             // 
             // colorLabel
             // 

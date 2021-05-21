@@ -38,6 +38,11 @@ namespace doors
             DeliveryLabel.Text = "+7410 руб доставка";
         }
 
+        private void colorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void trimPanelsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             UpdatePrice();

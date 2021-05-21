@@ -104,7 +104,7 @@
             this.adminBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.adminBtn.Name = "adminBtn";
             this.adminBtn.Size = new System.Drawing.Size(92, 44);
-            this.adminBtn.TabIndex = 5;
+            this.adminBtn.TabIndex = 50;
             this.adminBtn.Text = "admin";
             this.adminBtn.UseVisualStyleBackColor = true;
             this.adminBtn.Visible = false;

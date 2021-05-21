@@ -28,6 +28,28 @@ namespace doors
         {
             conn.Close();
         }
+
+        public static long Insert(string Text, List<MySqlParameter> sqlParams = null)
+        {
+            //Создать команду
+            MySqlCommand command = new MySqlCommand(Text, conn);
+
+            // Добавить параметры, если есть
+            if (sqlParams != null)
+                sqlParams.ForEach((MySqlParameter _sqlparam) => {
+                    command.Parameters.Add(_sqlparam);
+                });
+
+            //Выполнить команду
+            DbDataReader reader = command.ExecuteReader();
+            long result = command.LastInsertedId;
+            reader.Close();
+            command.Dispose();
+
+            return result;
+        }
+
+
         public static List<string> Select(string Text, List<MySqlParameter> sqlParams = null)
         {
             //Результат
