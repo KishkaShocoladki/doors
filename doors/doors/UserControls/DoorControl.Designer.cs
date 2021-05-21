@@ -48,9 +48,12 @@
             this.ulyanovskRB = new System.Windows.Forms.RadioButton();
             this.anotherCityRB = new System.Windows.Forms.RadioButton();
             this.DeliveryLabel = new System.Windows.Forms.Label();
+            this.CountLbl = new System.Windows.Forms.Label();
+            this.CountNUD = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.doorPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CountNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -275,10 +278,40 @@
             this.DeliveryLabel.Text = " + 7410 руб доставка";
             this.DeliveryLabel.Visible = false;
             // 
+            // CountLbl
+            // 
+            this.CountLbl.AutoSize = true;
+            this.CountLbl.Location = new System.Drawing.Point(791, 0);
+            this.CountLbl.Name = "CountLbl";
+            this.CountLbl.Size = new System.Drawing.Size(56, 37);
+            this.CountLbl.TabIndex = 11;
+            this.CountLbl.Text = "шт.";
+            // 
+            // CountNUD
+            // 
+            this.CountNUD.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CountNUD.Location = new System.Drawing.Point(710, 1);
+            this.CountNUD.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CountNUD.Name = "CountNUD";
+            this.CountNUD.Size = new System.Drawing.Size(80, 36);
+            this.CountNUD.TabIndex = 12;
+            this.CountNUD.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CountNUD.ValueChanged += new System.EventHandler(this.widthComboBox_SelectedIndexChanged);
+            // 
             // DoorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.CountNUD);
+            this.Controls.Add(this.CountLbl);
             this.Controls.Add(this.DeliveryLabel);
             this.Controls.Add(this.distanceNumericUpDown);
             this.Controls.Add(this.anotherCityRB);
@@ -306,6 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.doorPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.floorNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.distanceNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CountNUD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,5 +367,7 @@
         private System.Windows.Forms.RadioButton ulyanovskRB;
         private System.Windows.Forms.RadioButton anotherCityRB;
         private System.Windows.Forms.Label DeliveryLabel;
+        private System.Windows.Forms.Label CountLbl;
+        private System.Windows.Forms.NumericUpDown CountNUD;
     }
 }

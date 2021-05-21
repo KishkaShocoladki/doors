@@ -50,6 +50,24 @@ namespace doors
         }
 
 
+
+        public static void UpdateImg(String Text, String address)
+        {
+            using FileStream pgFileStream = new FileStream(address, FileMode.Open, FileAccess.Read);
+            using BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream));
+            using MySqlCommand command = new MySqlCommand(Text, conn);
+
+            byte[] ImgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
+
+            MySqlParameter param = command.CreateParameter();
+            param.ParameterName = "?Image";
+            param.MySqlDbType = MySqlDbType.Blob;
+            param.Value = ImgByteA;
+            command.Parameters.Add(param);
+
+            command.ExecuteNonQuery();
+        }
+
         public static List<string> Select(string Text, List<MySqlParameter> sqlParams = null)
         {
             //Результат

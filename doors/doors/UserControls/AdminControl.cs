@@ -105,25 +105,35 @@ namespace doors
                 pars.Add(new MySqlParameter("Name", NameTB.Text));
                 pars.Add(new MySqlParameter("Price", PriceTB.Text));
                 pars.Add(new MySqlParameter("Mass", MassTB.Text));
-                if (address != "")
-                    pars.Add(new MySqlParameter("Image", pictureBox1.Image));
-                else
-                    pars.Add(new MySqlParameter("Image", null));
 
-                id = SQLClass.Insert("INSERT INTO doors(Name, Price, Mass, Image)" +
-                    " VALUES(?Name, ?Price, ?Mass, ?Image)", pars).ToString();
-
-                for (int i = 0; i < ColorsCLB.Items.Count; i++)
-                {
-                    if (ColorsCLB.GetItemChecked(i))
-                    {
-                        SQLClass.Insert("INSERT INTO door_colors(door_id, color_id)" +
-                            " SELECT " + id + ", id FROM colors WHERE Name = '" + ColorsCLB.Items[i].ToString() + "'");
-                    }
-                }
-
-                MessageBox.Show("Сохранено");
+                id = SQLClass.Insert("INSERT INTO doors(Name, Price, Mass)" +
+                    " VALUES(?Name, ?Price, ?Mass)", pars).ToString();
             }
-        }
+            else
+            {
+                List<MySqlParameter> pars = new List<MySqlParameter>();
+                pars.Add(new MySqlParameter("Name", NameTB.Text));
+                pars.Add(new MySqlParameter("Price", PriceTB.Text));
+                pars.Add(new MySqlParameter("Mass", MassTB.Text));
+
+                SQLClass.Insert("UPDATE doors" +
+                    " SET Name = ?Name, Price = ?Price, Mass = ?Mass WHERE Id = " + id, pars);
+            }
+
+            if (address != "")
+                SQLClass.UpdateImg("UPDATE doors SET Image = ?Image WHERE Id = " + id, address);
+
+            SQLClass.Insert("DELETE FROM door_colors WHERE door_id = " + id);
+            for (int i = 0; i < ColorsCLB.Items.Count; i++)
+            {
+                if (ColorsCLB.GetItemChecked(i))
+                {
+                    SQLClass.Insert("INSERT INTO door_colors(door_id, color_id)" +
+                        " SELECT " + id + ", id FROM colors WHERE Name = '" + ColorsCLB.Items[i].ToString() + "'");
+                }
+            }
+
+            MessageBox.Show("Сохранено");
+        }        
     }
 }

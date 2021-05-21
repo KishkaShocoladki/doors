@@ -28,7 +28,7 @@ namespace doors
                     " FROM colors JOIN door_colors ON colors.id = door_colors.color_id" +
                     " WHERE door_colors.door_id = " + list[i+3]);
                 modelComboBox.Items.Add(list[i]);
-                doors.Add(new DoorControl(images[i / 4], list[i], int.Parse(list[i + 1]), float.Parse(list[i + 2]), colors.ToArray()));
+                doors.Add(new DoorControl(images[i / 4], 1, list[i], int.Parse(list[i + 1]), float.Parse(list[i + 2]), colors.ToArray()));
             }
 
             modelComboBox.SelectedIndex = 0;
