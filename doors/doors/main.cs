@@ -28,7 +28,7 @@ namespace doors
                     " FROM colors JOIN door_colors ON colors.id = door_colors.color_id" +
                     " WHERE door_colors.door_id = " + list[i+3]);
                 modelComboBox.Items.Add(list[i]);
-                doors.Add(new DoorControl(images[i / 4], list[i], int.Parse(list[i + 1]), float.Parse(list[i + 2]), colors.ToArray()));
+                doors.Add(new DoorControl(images[i / 4], 1, list[i], int.Parse(list[i + 1]), float.Parse(list[i + 2]), colors.ToArray()));
             }
 
             modelComboBox.SelectedIndex = 0;
@@ -46,6 +46,39 @@ namespace doors
             doorsPanel.Controls.Add(doors[modelComboBox.SelectedIndex]);
 
             UpdatePrice(sender, e);
+        }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void colorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (loginTB.Text == "Admin" && passTB.Text == "123")
+            {
+                doorsPanel.Controls.Clear();
+                doorsPanel.Controls.Add(new AdminControl());
+            }
+        }
+
+        private void modelLabel_Click(object sender, EventArgs e)
+        {
+            loginLBL.Visible = true;
+            loginTB.Visible = loginLBL.Visible;
+            passLbl.Visible = loginLBL.Visible;
+            passTB.Visible = loginLBL.Visible;
+            adminBtn.Visible = loginLBL.Visible;
         }
     }
 }

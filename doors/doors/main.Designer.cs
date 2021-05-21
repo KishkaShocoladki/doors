@@ -30,16 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.comboPanel = new System.Windows.Forms.Panel();
-            this.assemblyChechBox = new System.Windows.Forms.CheckBox();
-            this.panelsCheckBox = new System.Windows.Forms.CheckBox();
-            this.handleCheckBox = new System.Windows.Forms.CheckBox();
-            this.colorLabel = new System.Windows.Forms.Label();
+            this.passTB = new System.Windows.Forms.TextBox();
+            this.loginTB = new System.Windows.Forms.TextBox();
+            this.passLbl = new System.Windows.Forms.Label();
+            this.loginLBL = new System.Windows.Forms.Label();
+            this.adminBtn = new System.Windows.Forms.Button();
             this.modelLabel = new System.Windows.Forms.Label();
-            this.widthLabel = new System.Windows.Forms.Label();
-            this.colorComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.modelComboBox = new System.Windows.Forms.ComboBox();
-            this.widthComboBox = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.doorsPanel = new System.Windows.Forms.Panel();
             this.comboPanel.SuspendLayout();
@@ -48,153 +45,114 @@
             // comboPanel
             // 
             this.comboPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(240)))), ((int)(((byte)(210)))));
-            this.comboPanel.Controls.Add(this.assemblyChechBox);
-            this.comboPanel.Controls.Add(this.panelsCheckBox);
-            this.comboPanel.Controls.Add(this.handleCheckBox);
-            this.comboPanel.Controls.Add(this.colorLabel);
+            this.comboPanel.Controls.Add(this.passTB);
+            this.comboPanel.Controls.Add(this.loginTB);
+            this.comboPanel.Controls.Add(this.passLbl);
+            this.comboPanel.Controls.Add(this.loginLBL);
+            this.comboPanel.Controls.Add(this.adminBtn);
             this.comboPanel.Controls.Add(this.modelLabel);
-            this.comboPanel.Controls.Add(this.widthLabel);
-            this.comboPanel.Controls.Add(this.colorComboBox);
-            this.comboPanel.Controls.Add(this.label1);
             this.comboPanel.Controls.Add(this.modelComboBox);
-            this.comboPanel.Controls.Add(this.widthComboBox);
-            this.comboPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.comboPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboPanel.Location = new System.Drawing.Point(0, 0);
             this.comboPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboPanel.Name = "comboPanel";
-            this.comboPanel.Size = new System.Drawing.Size(258, 480);
+            this.comboPanel.Size = new System.Drawing.Size(931, 44);
             this.comboPanel.TabIndex = 0;
+            this.comboPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.comboPanel_Paint);
             // 
-            // assemblyChechBox
+            // passTB
             // 
-            this.assemblyChechBox.AutoSize = true;
-            this.assemblyChechBox.Location = new System.Drawing.Point(12, 304);
-            this.assemblyChechBox.Name = "assemblyChechBox";
-            this.assemblyChechBox.Size = new System.Drawing.Size(82, 24);
-            this.assemblyChechBox.TabIndex = 4;
-            this.assemblyChechBox.Text = "Сборка";
-            this.toolTip1.SetToolTip(this.assemblyChechBox, "Все соберем и даже проверим");
-            this.assemblyChechBox.UseVisualStyleBackColor = true;
-            this.assemblyChechBox.CheckedChanged += new System.EventHandler(this.UpdatePrice);
+            this.passTB.Location = new System.Drawing.Point(708, 9);
+            this.passTB.Name = "passTB";
+            this.passTB.Size = new System.Drawing.Size(125, 27);
+            this.passTB.TabIndex = 9;
+            this.passTB.UseSystemPasswordChar = true;
+            this.passTB.Visible = false;
             // 
-            // panelsCheckBox
+            // loginTB
             // 
-            this.panelsCheckBox.AutoSize = true;
-            this.panelsCheckBox.Location = new System.Drawing.Point(13, 274);
-            this.panelsCheckBox.Name = "panelsCheckBox";
-            this.panelsCheckBox.Size = new System.Drawing.Size(109, 24);
-            this.panelsCheckBox.TabIndex = 4;
-            this.panelsCheckBox.Text = "Наличники";
-            this.toolTip1.SetToolTip(this.panelsCheckBox, "Красивые наличники чтобы монтажная пена не торчала изо всех щелей");
-            this.panelsCheckBox.UseVisualStyleBackColor = true;
-            this.panelsCheckBox.CheckedChanged += new System.EventHandler(this.UpdatePrice);
+            this.loginTB.Location = new System.Drawing.Point(509, 9);
+            this.loginTB.Name = "loginTB";
+            this.loginTB.Size = new System.Drawing.Size(125, 27);
+            this.loginTB.TabIndex = 8;
+            this.loginTB.Visible = false;
             // 
-            // handleCheckBox
+            // passLbl
             // 
-            this.handleCheckBox.AutoSize = true;
-            this.handleCheckBox.Location = new System.Drawing.Point(13, 243);
-            this.handleCheckBox.Name = "handleCheckBox";
-            this.handleCheckBox.Size = new System.Drawing.Size(69, 24);
-            this.handleCheckBox.TabIndex = 3;
-            this.handleCheckBox.Text = "Ручка";
-            this.toolTip1.SetToolTip(this.handleCheckBox, "Супер-ручка с замком");
-            this.handleCheckBox.UseVisualStyleBackColor = true;
-            this.handleCheckBox.CheckedChanged += new System.EventHandler(this.UpdatePrice);
+            this.passLbl.AutoSize = true;
+            this.passLbl.Location = new System.Drawing.Point(640, 12);
+            this.passLbl.Name = "passLbl";
+            this.passLbl.Size = new System.Drawing.Size(62, 20);
+            this.passLbl.TabIndex = 7;
+            this.passLbl.Text = "Пароль";
+            this.passLbl.Visible = false;
             // 
-            // colorLabel
+            // loginLBL
             // 
-            this.colorLabel.AutoSize = true;
-            this.colorLabel.Location = new System.Drawing.Point(13, 184);
-            this.colorLabel.Name = "colorLabel";
-            this.colorLabel.Size = new System.Drawing.Size(42, 20);
-            this.colorLabel.TabIndex = 2;
-            this.colorLabel.Text = "Цвет";
+            this.loginLBL.AutoSize = true;
+            this.loginLBL.Location = new System.Drawing.Point(451, 16);
+            this.loginLBL.Name = "loginLBL";
+            this.loginLBL.Size = new System.Drawing.Size(52, 20);
+            this.loginLBL.TabIndex = 6;
+            this.loginLBL.Text = "Логин";
+            this.loginLBL.Visible = false;
+            // 
+            // adminBtn
+            // 
+            this.adminBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.adminBtn.Location = new System.Drawing.Point(839, 0);
+            this.adminBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.adminBtn.Name = "adminBtn";
+            this.adminBtn.Size = new System.Drawing.Size(92, 44);
+            this.adminBtn.TabIndex = 50;
+            this.adminBtn.Text = "admin";
+            this.adminBtn.UseVisualStyleBackColor = true;
+            this.adminBtn.Visible = false;
+            this.adminBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // modelLabel
             // 
             this.modelLabel.AutoSize = true;
             this.modelLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.modelLabel.Location = new System.Drawing.Point(13, 72);
+            this.modelLabel.Location = new System.Drawing.Point(12, 9);
             this.modelLabel.Name = "modelLabel";
             this.modelLabel.Size = new System.Drawing.Size(63, 20);
             this.modelLabel.TabIndex = 1;
             this.modelLabel.Text = "Модель";
-            // 
-            // widthLabel
-            // 
-            this.widthLabel.AutoSize = true;
-            this.widthLabel.Location = new System.Drawing.Point(13, 128);
-            this.widthLabel.Name = "widthLabel";
-            this.widthLabel.Size = new System.Drawing.Size(158, 20);
-            this.widthLabel.TabIndex = 1;
-            this.widthLabel.Text = "Ширина полотна, мм";
-            // 
-            // colorComboBox
-            // 
-            this.colorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.colorComboBox.FormattingEnabled = true;
-            this.colorComboBox.Location = new System.Drawing.Point(14, 208);
-            this.colorComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.colorComboBox.Name = "colorComboBox";
-            this.colorComboBox.Size = new System.Drawing.Size(162, 28);
-            this.colorComboBox.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(14, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 43);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "панелька выбора параметров дверей";
+            this.modelLabel.Click += new System.EventHandler(this.modelLabel_Click);
             // 
             // modelComboBox
             // 
             this.modelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modelComboBox.FormattingEnabled = true;
-            this.modelComboBox.Location = new System.Drawing.Point(14, 96);
+            this.modelComboBox.Location = new System.Drawing.Point(81, 9);
             this.modelComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.modelComboBox.Name = "modelComboBox";
-            this.modelComboBox.Size = new System.Drawing.Size(162, 28);
+            this.modelComboBox.Size = new System.Drawing.Size(231, 28);
             this.modelComboBox.TabIndex = 0;
             this.modelComboBox.SelectedIndexChanged += new System.EventHandler(this.modelComboBox_SelectedIndexChanged);
-            // 
-            // widthComboBox
-            // 
-            this.widthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.widthComboBox.FormattingEnabled = true;
-            this.widthComboBox.Items.AddRange(new object[] {
-            "400",
-            "500",
-            "600",
-            "700",
-            "800"});
-            this.widthComboBox.Location = new System.Drawing.Point(14, 152);
-            this.widthComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.widthComboBox.Name = "widthComboBox";
-            this.widthComboBox.Size = new System.Drawing.Size(162, 28);
-            this.widthComboBox.TabIndex = 0;
-            this.widthComboBox.SelectedIndexChanged += new System.EventHandler(this.UpdatePrice);
             // 
             // doorsPanel
             // 
             this.doorsPanel.AutoScroll = true;
-            this.doorsPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.doorsPanel.Location = new System.Drawing.Point(264, 0);
+            this.doorsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.doorsPanel.Location = new System.Drawing.Point(0, 44);
             this.doorsPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.doorsPanel.Name = "doorsPanel";
-            this.doorsPanel.Size = new System.Drawing.Size(860, 480);
+            this.doorsPanel.Size = new System.Drawing.Size(931, 489);
             this.doorsPanel.TabIndex = 0;
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1124, 480);
+            this.ClientSize = new System.Drawing.Size(931, 533);
             this.Controls.Add(this.doorsPanel);
             this.Controls.Add(this.comboPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "main";
             this.Text = "двери...";
+            this.Load += new System.EventHandler(this.main_Load);
             this.comboPanel.ResumeLayout(false);
             this.comboPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -205,17 +163,14 @@
 
         private System.Windows.Forms.Panel comboPanel;
         private System.Windows.Forms.Panel doorsPanel;
-        private System.Windows.Forms.ComboBox colorComboBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox widthComboBox;
-        private System.Windows.Forms.Label colorLabel;
-        private System.Windows.Forms.Label widthLabel;
-        private System.Windows.Forms.CheckBox assemblyChechBox;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.CheckBox panelsCheckBox;
-        private System.Windows.Forms.CheckBox handleCheckBox;
         private System.Windows.Forms.Label modelLabel;
         private System.Windows.Forms.ComboBox modelComboBox;
+        private System.Windows.Forms.Button adminBtn;
+        private System.Windows.Forms.TextBox passTB;
+        private System.Windows.Forms.TextBox loginTB;
+        private System.Windows.Forms.Label passLbl;
+        private System.Windows.Forms.Label loginLBL;
     }
 }
 
